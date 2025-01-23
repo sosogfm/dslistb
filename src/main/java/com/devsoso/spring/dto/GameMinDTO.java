@@ -1,6 +1,7 @@
 package com.devsoso.spring.dto;
 
 import com.devsoso.spring.entities.Game;
+import com.devsoso.spring.projections.GameMinProjection;
 
 public class GameMinDTO {
 	
@@ -12,14 +13,21 @@ public class GameMinDTO {
 	
 	public GameMinDTO( ) {
 	}
-	
-	
+		
 	public GameMinDTO(Game entity) {
 		id = entity.getId();
 		title = entity.getTitle();
 		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
 		shortDescription = entity.getShortDescription();
+	}
+	
+	public GameMinDTO(GameMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
 	}
 	
 	public Long getId() {
